@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Certificato Medico</title>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+	crossorigin="anonymous">
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+	crossorigin="anonymous"></script>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<script th:src="@{/js/theme.js}"></script>
+</head>
+
+<body class="sfondo-geometrico">
+
+	<div id="loading-screen">
+		<div class="loading-spinner"></div>
+		<div class="loading-text">Caricamento in corso...</div>
+	</div>
+
+	<header
+		th:insert="~{fragments/navigation :: block-navigation('Certificato Medico')}"></header>
+	<div class="page-heading">
+		<div class="page-heading-content">
+
+			<div class="page-heading-icon">
+				<i class="bi bi-heart-pulse-fill"></i>
+			</div>
+
+			<div>
+				<h1>Certificati Medici</h1>
+				<p>Controlla e aggiorna i certificati medici dei soci</p>
+			</div>
+
+		</div>
+
+		<div class="page-heading-line"></div>
+	</div>
+	<div class="container-fluid mt-3" align="center">
+
+		<div th:if="${errorMsg}" class="alert alert-danger"
+			th:text="${errorMsg}"></div>
+
+		<form class="form-content" th:action="@{saveCertificato}"
+			th:object="${certificato}" method="post"
+			style="width: 50%; margin: auto">
+
+			<input type="hidden" th:field="*{socioID}">
+
+			<table class="table table-bordered mt-3">
+
+				<tbody>
+					<tr>
+						<td><label class="form-label">Tipo</label></td>
+
+						<td><select class="form-select" th:field="*{tipo}">
+								<option value="false">Normale</option>
+								<option value="true">Agonistico</option>
+						</select></td>
+					</tr>
+
+					<tr>
+						<td><label class="form-label">Data Certificato</label></td>
+
+						<td><input type="date" class="form-control"
+							th:field="*{dataCerticifato}" required></td>
+					</tr>
+				</tbody>
+
+			</table>
+
+			<div class="mt-4" align="center">
+				<button type="submit" class="btn btn-primary">Registra
+					certificato</button>
+			</div>
+
+		</form>
+
+	</div>
+	<script th:src="@{/js/loading.js}" defer></script>
+</body>
+</html>
