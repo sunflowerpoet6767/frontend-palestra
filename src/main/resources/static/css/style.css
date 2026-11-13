@@ -1,16 +1,196 @@
+
+/* ===== PALETTE VERDE LIME ===== */
+
+:root {
+    --lime-primary: #84cc16;
+    --lime-hover: #65a30d;
+    --lime-light: #a3e635;
+    --lime-dark: #4d7c0f;
+    --lime-border: #65a30d;
+}
+
+/* ===== NAVBAR ===== */
+
+.navbar {
+    background-color: var(--bs-tertiary-bg);
+}
+
+.navbar-brand {
+    color: var(--bs-body-color) !important;
+}
+
+.navbar-brand:hover {
+    color: var(--lime-hover) !important;
+}
+
+/* ===== LINK MENU ===== */
+
 .menu-link {
-    color: #495057 !important;
+    color: var(--bs-body-color) !important;
     padding: 12px 8px !important;
     border-bottom: 2px solid transparent;
 }
 
 .menu-link:hover {
-    color: #0d6efd !important;
-    border-bottom-color: #0d6efd;
+    color: var(--lime-hover) !important;
+    border-bottom-color: var(--lime-hover);
 }
 
 .menu-link.active {
-    color: #0d6efd !important;
+    color: var(--lime-hover) !important;
     font-weight: 600;
-    border-bottom-color: #0d6efd;
+    border-bottom-color: var(--lime-hover);
+}
+
+/* ===== PULSANTI VERDE LIME ===== */
+
+.btn-primary {
+    --bs-btn-bg: #84cc16;
+    --bs-btn-border-color: #84cc16;
+
+    --bs-btn-hover-bg: #65a30d;
+    --bs-btn-hover-border-color: #65a30d;
+
+    --bs-btn-active-bg: #4d7c0f;
+    --bs-btn-active-border-color: #4d7c0f;
+
+    --bs-btn-disabled-bg: #84cc16;
+    --bs-btn-disabled-border-color: #84cc16;
+
+    --bs-btn-color: #172600;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-disabled-color: #172600;
+}
+
+/* ===== LINK ===== */
+
+a:not(.btn):not(.nav-link):not(.navbar-brand) {
+    color: var(--lime-dark);
+}
+
+a:not(.btn):not(.nav-link):not(.navbar-brand):hover {
+    color: var(--lime-hover);
+}
+
+/* ===== CAMPI FORM ===== */
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--lime-primary);
+    box-shadow: 0 0 0 0.25rem rgba(132, 204, 22, 0.25);
+}
+
+/* ===== TABELLE ===== */
+
+.table {
+    border: 1px solid var(--lime-border);
+    border-collapse: collapse;
+}
+
+/* BORDI DELLE CELLE */
+
+.table th,
+.table td {
+    border: 1px solid var(--lime-border);
+    padding: 12px;
+    vertical-align: middle;
+}
+
+/* INTESTAZIONI VERDE SCURO */
+
+.table thead th {
+    background-color: #4d7c0f;
+    color: #ffffff;
+    font-weight: 600;
+    border-color: #3f6212;
+}
+
+/* RIGHE DELLA TABELLA */
+
+.table tbody td {
+    background-color: var(--bs-secondary-bg);
+    color: var(--bs-body-color);
+}
+
+/* ===== ICONA ELIMINA ===== */
+
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: var(--lime-hover);
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.btn-delete:hover {
+    background: transparent;
+    color: var(--lime-dark);
+    transform: scale(1.2);
+}
+
+/* ===== DARK MODE ===== */
+
+[data-bs-theme="dark"] .navbar {
+    background-color: #252b22;
+}
+
+[data-bs-theme="dark"] .menu-link {
+    color: #e0e0e0 !important;
+}
+
+[data-bs-theme="dark"] .menu-link:hover,
+[data-bs-theme="dark"] .menu-link.active {
+    color: var(--lime-light) !important;
+    border-bottom-color: var(--lime-light);
+}
+
+[data-bs-theme="dark"] .navbar-brand {
+    color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .navbar-brand:hover {
+    color: var(--lime-light) !important;
+}
+
+/* LINK DARK MODE */
+
+[data-bs-theme="dark"] a:not(.btn):not(.nav-link):not(.navbar-brand) {
+    color: var(--lime-light);
+}
+
+[data-bs-theme="dark"] a:not(.btn):not(.nav-link):not(.navbar-brand):hover {
+    color: #bef264;
+}
+
+/* TABELLE DARK MODE */
+
+[data-bs-theme="dark"] .table {
+    border-color: var(--lime-border);
+}
+
+[data-bs-theme="dark"] .table th,
+[data-bs-theme="dark"] .table td {
+    border-color: var(--lime-border);
+}
+
+[data-bs-theme="dark"] .table thead th {
+    background-color: #3f6212;
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .table tbody td {
+    background-color: #2b3025;
+    color: #f1f1f1;
+}
+
+/* ICONA ELIMINA DARK MODE */
+
+[data-bs-theme="dark"] .btn-delete {
+    color: var(--lime-light);
+}
+
+[data-bs-theme="dark"] .btn-delete:hover {
+    color: #bef264;
 }

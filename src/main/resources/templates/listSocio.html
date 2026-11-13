@@ -5,6 +5,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script><title>List Socio</title>
 <link rel="stylesheet" th:href="@{/css/style.css}">
+<script th:src="@{/js/theme.js}"></script>
 </head>
 <body>
 	<header th:insert="~{fragments/navigation :: block-navigation('Elenco soci')}"></header>
@@ -32,14 +33,14 @@
 				</select>
 			</div>
 			<div class="col-auto ms-auto">
-				<button type="submit" class="btn btn-primary">cerca</button>
+				<button type="submit" class="btn btn-primary">Cerca</button>
 				<a th:href="@{createSocio}"  class="btn btn-secondary">Nuovo socio</a>
 			</div>
 		</form>
-		<table class="table table-secondary" style="width: 60%; text-align: center">
+		<table class="table table-bordered" style="width:60%; text-align:center">
 			<thead>
 				<th>Cognome</th>
-				<th>nome</th>
+				<th>Nome</th>
 				<th>Email</th>
 				<th>Codice fiscale</th>
 				<th>Certificato Medico</th>
@@ -55,10 +56,14 @@
 					<td align="center">[[${socio.email}]]</td>
 					<td align="center">[[${socio.codiceFiscale}]]</td>
 					<td class="noselect">
-						<span th:text="${socio.certificato} != null ? ${socio.certificato.tipo} : 'senza'"></span>
+						<a th:href="@{updateCertificatoMedico(id=${socio.id})}">
+							<span th:text="${socio.certificato} != null ? ${socio.certificato.tipo} : 'senza'"></span>
+						</a>
 					</td>
 					<td class="noselect">
-						<span th:text="${#lists.size(socio.abbonamento) > 0} ? 'abbonamento attivi' : 'senza abbonamento'"></span>
+						<a th:href="@{listAbbonamento(id=${socio.id})}">
+							<span th:text="${#lists.size(socio.abbonamento) > 0} ? 'abbonamento attivo' : 'senza abbonamento'"></span>
+						</a>
 					</td>
 				</tr>
 			</tbody>
